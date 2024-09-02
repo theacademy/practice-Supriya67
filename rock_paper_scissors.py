@@ -4,6 +4,35 @@
    "cell_type": "code",
    "execution_count": 1,
    "metadata": {},
+   "outputs": [
+    {
+     "ename": "ValueError",
+     "evalue": "invalid literal for int() with base 10: ''",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mValueError\u001b[0m                                Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[1], line 31\u001b[0m\n\u001b[0;32m     29\u001b[0m \u001b[38;5;28;01mwhile\u001b[39;00m \u001b[38;5;28;01mTrue\u001b[39;00m:\n\u001b[0;32m     30\u001b[0m     \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124minput your choice\u001b[39m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[38;5;124m press 1 for stone \u001b[39m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[38;5;124m press 2 for paper \u001b[39m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[38;5;124m press 3 for scissors\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[1;32m---> 31\u001b[0m     Choice\u001b[38;5;241m=\u001b[39m\u001b[38;5;28mint\u001b[39m(\u001b[38;5;28minput\u001b[39m())\n\u001b[0;32m     32\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m (Choice\u001b[38;5;241m<\u001b[39m\u001b[38;5;241m1\u001b[39m \u001b[38;5;129;01mor\u001b[39;00m Choice\u001b[38;5;241m>\u001b[39m\u001b[38;5;241m3\u001b[39m):\n\u001b[0;32m     33\u001b[0m         \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124m Enter a Invalid Choice\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n",
+      "\u001b[1;31mValueError\u001b[0m: invalid literal for int() with base 10: ''"
+     ]
+    }
+   ],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
    "outputs": [],
    "source": [
     "import random\n",
@@ -55,16 +84,6 @@
     "        break\n",
     "print(\"thank you for playing!!\")\n",
     "    "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "\n",
-    "\n"
    ]
   }
  ],
