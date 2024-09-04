@@ -1,3 +1,11 @@
+'''
+
+                            Online Python Compiler.
+                Code, Compile, Run and Debug python program online.
+Write your code in this editor and press "Run" button to execute it.
+
+'''
+
 import random
 def bull_cows(secret_num,guess):
     bull_cows=[0,0]
@@ -32,17 +40,23 @@ def secret_num1():
     
 
 secret_num=secret_num1()
-print(secret_num)
+#print(secret_num)
 
 tries =int(input('Enter number of tries: ')) 
 while tries>0:
     guess=int(input('Enter your guess: '))
+    #print(len(getDigit(guess)))
     if not noDuplicate(guess):
-        print("invalid")
-    B_C=bull_cows(secret_num,guess)
-    if B_C[0] == 4:
-        print("you are right")
-        break
+        print("Duplicate: Please enter a valid Number")
+    if len(getDigit(guess)) != 4:
+        print("Inavlid: Please Enter a 4 digit number")
+    else:
+        B_C=bull_cows(secret_num,guess)
+        print(f"No of Bulls: {B_C[0]} \nNo of cows: {B_C[1]}")
+        if B_C[0] == 4:
+            print("you are right")
+            break
     tries-=1
+    print(f"No. of tries Left {tries}")
 else:
-    print("You ran out of tries")
+    print(f"You ran out of tries \nsecret number is: {secret_num}")
