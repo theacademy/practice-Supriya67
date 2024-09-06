@@ -1,13 +1,8 @@
-'''
 
-                            Online Python Compiler.
-                Code, Compile, Run and Debug python program online.
-Write your code in this editor and press "Run" button to execute it.
 
-'''
-
-# Name: [Supriya, Samuele, Anabil]
+# Name: [Supriya]
 # Date: 2024-09-05
+
 
 class FoodItem:
     def __init__(self, name, price):
@@ -15,7 +10,7 @@ class FoodItem:
         self.price = price
 
     def __str__(self):
-        return f"{self.name}: ${self.price:.2f}"
+        return f"{self.name}: £{self.price:.2f}"
 
 
 class Burger(FoodItem):
@@ -26,7 +21,7 @@ class Burger(FoodItem):
 
     def __str__(self):
         return (f"Burger: {self.name}, Patty: {self.patty_type}, "
-                f"Toppings: {', '.join(self.toppings)}, Price: ${self.price:.2f}")
+                f"Toppings: {', '.join(self.toppings)}, Price: £{self.price:.2f}")
 
 
 class Drink(FoodItem):
@@ -35,7 +30,7 @@ class Drink(FoodItem):
         self.size = size
 
     def __str__(self):
-        return f"Drink: {self.name}, Size: {self.size}, Price: ${self.price:.2f}"
+        return f"Drink: {self.name}, Size: {self.size}, Price: £{self.price:.2f}"
 
 
 class Side(FoodItem):
@@ -44,7 +39,7 @@ class Side(FoodItem):
         self.size = size
 
     def __str__(self):
-        return f"Side: {self.name}, Size: {self.size}, Price: ${self.price:.2f}"
+        return f"Side: {self.name}, Size: {self.size}, Price: £{self.price:.2f}"
 
 
 class Combo(FoodItem):
@@ -57,7 +52,7 @@ class Combo(FoodItem):
 
     def __str__(self):
         return (f"Combo: {self.name}\n{self.burger}\n{self.side}\n{self.drink}\n"
-                f"Total Combo Price: ${self.price:.2f}")
+                f"Total Combo Price: £{self.price:.2f}")
 
 
 class Order:
@@ -74,7 +69,7 @@ class Order:
     def __str__(self):
         order_details = "\n".join(str(item) for item in self.items)
         return (f"Order for {self.customer_name}:\n{order_details}\n"
-                f"Total Price: ${self.total_price():.2f}")
+                f"Total Price: £{self.total_price():.2f}")
 
 
 # User input functions with fixed prices
