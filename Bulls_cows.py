@@ -27,13 +27,13 @@ def noDuplicate(a):
 
 def secret_num1():
     while True:
-        a=random.randint(1000,9999)
+        a=f"{random.randint(0, 999):04}"
         if noDuplicate(a):
             return a
     
 
 secret_num=secret_num1()
-#print(secret_num)
+print(secret_num)
 
 tries =int(input('Enter number of tries: ')) 
 while tries>0:

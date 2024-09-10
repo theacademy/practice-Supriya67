@@ -42,7 +42,7 @@ class ContactList:
 
     def create_contact(self, fullName, phone, email):
         sql="insert into contacts(fullname,phone,email) values(%s , %s, %s)"
-        self.cursor.execute(sql,(fullName, phone, email))
+        self.cursor.execute(sql,(fullName, phone, email,))
         self.conn.commit()
         new_contact=Contact(self.cursor.lastrowid, fullName, phone,email)
         self.contacts.append(new_contact)
@@ -50,20 +50,46 @@ class ContactList:
     def read_contacts(self):
         sql="select * from contacts"
         self.cursor.execute(sql)
-        self.contacts = self.cursor.fetchall()
-        if not self.contacts:
+        contacts = self.cursor.fetchall()
+        if not contacts:
             print("No contact found")
         else:
-            for i in self.contacts:
+            for i in contacts:
                 print(i)
+    def get_contact_by_id(self,contact_id):
+        sql="select * from contacts where id = %s"
+        self.cursor.execute(sql,(contact_id,))
+        contacts = self.cursor.fetchone()
+        if contacts:
+            print(contacts)
+        else:
+            print("No contact found")
+
 
     def update_contact(self, contact_id, new_fullName=None, new_phone=None, new_email=None):
-        sql="update contacts set fullname = %s where id = %s"
-        self.cursor.execute(sql,(new_fullName,contact_id))
+
+        sql="update contacts set "
+        params=[]
+        update_fields=[]
+        if new_fullName:
+            update_fields.append("fullname = %s")
+            params.append(new_fullName)
+        if new_phone:
+            update_fields.append("phone = %s")
+            params.append(new_phone)
+        if new_email:
+            update_fields.append("email = %s")
+            params.append(new_email)
+        if update_fields:
+            sql = sql + ", ".join(update_fields) + " where id  = %s"
+            params.append(contact_id)
+        self.cursor.execute(sql,params,)
         self.conn.commit()
 
-    def delete_contact(self, contact_id):
-        pass
+    def delete_contact(self,contact_id):
+        sql="delete from contacts where id = %s"
+        self.cursor.execute(sql,(contact_id,))
+        self.conn.commit()
   
 
 def main():
@@ -72,10 +98,11 @@ def main():
     while True:
         print("\nContact List Menu:")
         print("1. Add Contact")
-        print("2. View Contacts")
-        print("3. Update Contact")
-        print("4. Delete Contact")
-        print("5. Exit")
+        print("2. View all Contacts")
+        print("3. View Contact By ID")
+        print("4. Update Contact")
+        print("5. Delete Contact")
+        print("6. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -87,15 +114,18 @@ def main():
         elif choice == '2':
             contact_list.read_contacts()
         elif choice == '3':
+            contact_id = input("Enter the contact id of the contact to view:")
+            contact_list.get_contact_by_id(contact_id)
+        elif choice == '4':
             contact_id = input("Enter the contact id of the contact to update: ")
             new_fullName = input("Enter new full name (leave blank to keep current): ")
             new_phone = input("Enter new phone (leave blank to keep current): ")
             new_email = input("Enter new email (leave blank to keep current): ")
             contact_list.update_contact(contact_id, new_fullName if new_fullName else None, new_phone if new_phone else None, new_email if new_email else None)
-        elif choice == '4':
+        elif choice == '5':
             contact_id = input("Enter the contact ID of the contact to delete: ")
             contact_list.delete_contact(contact_id)
-        elif choice == '5':
+        elif choice == '6':
             print("Exiting the application.")
             break
         else:
