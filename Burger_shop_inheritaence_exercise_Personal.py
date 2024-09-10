@@ -44,7 +44,7 @@ class Side(FoodItem):
 
 class Combo(FoodItem):
     def __init__(self, name, burger, side, drink):
-        combo_price = burger.price + side.price + drink.price - 2.00  # $2 discount for combo
+        combo_price = burger.price + side.price + drink.price - 2.00  # 2 discount for combo
         super().__init__(name, combo_price)
         self.burger = burger
         self.side = side

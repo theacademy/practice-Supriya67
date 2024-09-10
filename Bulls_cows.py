@@ -1,3 +1,4 @@
+
 import random
 def bull_cows(secret_num,guess):
     bull_cows=[0,0]
