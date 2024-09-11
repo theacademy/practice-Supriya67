@@ -27,7 +27,7 @@ def noDuplicate(a):
 
 def secret_num1():
     while True:
-        a=f"{random.randint(0, 999):04}"
+        a=f"{random.randint(0, 9999):04}"
         if noDuplicate(a):
             return a
     
